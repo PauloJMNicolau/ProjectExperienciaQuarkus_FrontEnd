@@ -1,69 +1,31 @@
 import './App.css';
 import Formulario from "./Formulario";
 import {useState} from "react";
+import Financiamento from "./Financiamento";
 
 function App() {
     const [financiamento , setFinanciamento] = useState();
+    const [tabelaVisivel, setTabelaVisivel] = useState(false);
 
-    const TiposFinanciamento = {
-        "EXTERNO": 0,
-        "INTERNO": 1
-    }
 
     function handleFinanciamento(financiamento){
         setFinanciamento(financiamento)
+        if(financiamento !== undefined)
+            handleVisibilidade(true)
     }
 
-    function handleSave(){
-        financiamento.nome="Paulo";
-        financiamento.contacto="926005024";
-        fetch("/prestacoes/salvar", {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(financiamento)
-        })
-        console.log("Teste");
+    function handleVisibilidade(visibilidade){
+        setTabelaVisivel(visibilidade)
     }
 
     return (
         <div className="App">
-            <Formulario handleFinanciamento={handleFinanciamento}/>
-            <div>
-                <table border={1}>
-                    <thead>
-                    <tr>
-                        <th colSpan={2}>Financiamento</th>
-                    </tr>
-
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Valor Compra</td>
-                        <td>{financiamento?.valor}</td>
-                    </tr>
-                    <tr>
-                        <td>Nº Mensalidades</td>
-                        <td>{financiamento?.mensalidades}</td>
-                    </tr>
-                    <tr>
-                        <td>Tipo Financiamento</td>
-                        <td>{financiamento?.tipo === TiposFinanciamento.EXTERNO.valueOf() ? "Externo" : "Interno" }</td>
-                    </tr>
-                    <tr>
-                        <td>Prestação Mensal</td>
-                        <td>{financiamento?.prestacao}</td>
-                    </tr>
-                    <tr>
-                        <td colSpan={2}>
-                            <input type="button" onClick={handleSave} value={"Salvar"}/>
-                        </td>
-                    </tr>
-                    </tbody>
-
-                </table>
+            <section className="headerFormulario">
+                <h1>Cálculo de Prestações</h1>
+            </section>
+            <div className="conteudo">
+                <Formulario handleFinanciamento={handleFinanciamento}/>
+                <Financiamento financiamento={financiamento} tabelaVisivel={tabelaVisivel}/>
             </div>
         </div>
     );

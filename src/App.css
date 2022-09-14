@@ -1,4 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-size: 16px;
+}
 .App {
   text-align: center;
 }
 
+.headerFormulario{
+  background: cadetblue;
+  color: floralwhite;
+}
+
+.headerFormulario > h1{
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.formulario{
+  padding: 3rem;
+  width: 25%;
+  margin: auto;
+}
+
+.formularioLinha{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.formBorder{
+  border-radius: 25px;
+  background: cadetblue;
+  padding: 1rem;
+  color: floralwhite;
+}
+
+.label{
+  text-align: left;
+  font-weight: bold;
+  width: 60%;
+}
+
+.elemento{
+  text-align: left;
+  width: 40%;
+}
+
+.elemento :only-child{
+  width: 100%;
+  background: skyblue;
+  text-align: right;
+  color: midnightblue;
+  border-style: none;
+}
+
+.buttonStyle{
+  width: 100%;
+  background: midnightblue;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.5rem;
+  color: white;
+  border-style: outset;
+}
+
+.conteudo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tabelaSpace{
+  padding: 3rem;
+  width: 25%;
+}
+
+.tabela{
+  width: 100%;
+}
+
+.tabela td,
+.tabela th{
+  padding: 0.5rem;
+}
+
+.tabela th{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.tabelaLabel{
+  font-weight: bold;
+}
+
+.tabelaEscondida{
+  display: none;
+}

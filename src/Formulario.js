@@ -66,28 +66,42 @@ export default function Formulario({handleFinanciamento}){
     }, [tipo]);
 
     return (
-        <form>
-            <p>Tipo de Financiamento:
-            <select value={tipo} onChange={onChangeTipo}>
-                {tipos && tipos.map((item, index) =>
-                    (<option key={item} value={index} >{item}</option>)
-                )}
-            </select>
-            </p>
-            <p>Mensalidades:
-                <select value={mensalidade} onChange={onChangeMensalidade}>
-                    {mensalidades && mensalidades.map((item) =>
-                        (<option key={item} value={item}>{item}</option>)
-                    )}
-                </select>
-            </p>
-            <p>Valor:
-                <input type="text"  name="Valor" onChange={onChangeValor} value={valor} title={"Valor"} />
-            </p>
-            <p>
-                <input type="button" name="submit" value="Calcular" onClick={onSubmitCalc}/>
-            </p>
-        </form>
+        <div className="formulario">
+            <div className="formBorder">
+                <div className="formularioLinha">
+                    <div className="label">Tipo de Financiamento:</div>
+                    <div className="elemento">
+                        <select value={tipo} onChange={onChangeTipo}>
+                            {tipos && tipos.map((item, index) =>
+                                (<option key={item} value={index} >{item}</option>)
+                            )}
+                        </select>
+                    </div>
+                </div>
+
+                <div className="formularioLinha">
+                    <div className="label">Mensalidades:</div>
+                    <div className="elemento">
+                        <select value={mensalidade} onChange={onChangeMensalidade}>
+                            {mensalidades && mensalidades.map((item) =>
+                                (<option key={item} value={item}>{item}</option>)
+                            )}
+                        </select>
+                    </div>
+                </div>
+
+                <div className="formularioLinha">
+                    <div className="label">Valor:</div>
+                    <div className="elemento">
+                        <input type="text"  name="Valor" onChange={onChangeValor} value={valor} title={"Valor"} />
+                    </div>
+                </div>
+
+                <div className="formularioLinha">
+                    <input className="buttonStyle" type="button" name="submit" value="Calcular" onClick={onSubmitCalc}/>
+                </div>
+            </div>
+        </div>
     );
 
 
